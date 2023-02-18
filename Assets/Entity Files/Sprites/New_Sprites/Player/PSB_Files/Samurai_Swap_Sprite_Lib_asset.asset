@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: Samurai_Swap_Sprite_Lib_asset
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: Outer_Palm
+    m_Hash: 1130442178
+    m_CategoryList:
+    - m_Name: A
+      m_Hash: -740712821
+      m_Sprite: {fileID: 3064548210341896344, guid: 6a845f7b9a116764381d127fef429d86, type: 3}
+    - m_Name: B
+      m_Hash: 1255198513
+      m_Sprite: {fileID: -3237504861160823131, guid: 5340737afa38c3242a7663157ab465ba, type: 3}
+  - m_Name: Inner_Palm
+    m_Hash: -1919832886
+    m_CategoryList:
+    - m_Name: A
+      m_Hash: -740712821
+      m_Sprite: {fileID: 8391692704316724173, guid: 6a845f7b9a116764381d127fef429d86, type: 3}
+    - m_Name: B
+      m_Hash: 1255198513
+      m_Sprite: {fileID: -1466545406595158928, guid: 5340737afa38c3242a7663157ab465ba, type: 3}

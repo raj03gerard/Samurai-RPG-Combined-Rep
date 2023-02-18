@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - village1
+  - rain1end
+  - rain1start
+  - Ground
+  - Player_Weapon
+  - ParticleContainer
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Ground
+  - Damageable
+  - Dead
+  - Player
+  - Weapon
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: BackgroundMountains
+    uniqueID: 3180671169
+    locked: 0
+  - name: Background
+    uniqueID: 2055799467
+    locked: 0
+  - name: Platform
+    uniqueID: 899610551
+    locked: 0
+  - name: Enemy
+    uniqueID: 3593678021
+    locked: 0
+  - name: Player
+    uniqueID: 1612287461
+    locked: 0
+  - name: Foreground
+    uniqueID: 125714521
+    locked: 0

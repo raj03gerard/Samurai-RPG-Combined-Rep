@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WaterfallMat
+  m_Shader: {fileID: -6465566751694194690, guid: 4631dce7d53156d44aa96ebdaae120ff, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _SampleTexture2D_09f3d03bae4b4cb79f4f1f7f63eaecd3_Texture_1:
+        m_Texture: {fileID: 2800000, guid: bd9871118e7b6604197cafcdf533027a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_ae60ddf4ff094e86b0f74f9967c0ce75_Texture_1:
+        m_Texture: {fileID: 2800000, guid: c3e7dadeadc2a2d4e95df1c76451c9f8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_e30cd5c8ad1e41c4a70afdd0d194ad7b_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 6634a87e7a3116743b51eb54a038085e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - Vector1_8351A6D0: 5
+    - Vector1_870E6F10: 5.91
+    - Vector1_C09E0F38: 0.79
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - Color_2214FD8C: {r: 0.44599503, g: 0.44741902, b: 0.4528302, a: 1}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _VoronoiSpeed: {r: 0, g: 1, b: 0, a: 0}
+    - _VoronoiTiling: {r: 12.31, g: 0.8, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!114 &195253467399889278
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
