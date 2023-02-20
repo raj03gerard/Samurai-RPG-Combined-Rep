@@ -6,7 +6,7 @@ public class Entity : MonoBehaviour
 {
     private Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
 
-    private Movement movement;
+    protected Movement movement;
 
     public FiniteStateMachine stateMachine;
 

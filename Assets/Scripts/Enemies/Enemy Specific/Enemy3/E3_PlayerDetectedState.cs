@@ -15,7 +15,6 @@ public class E3_PlayerDetectedState : PlayerDetectedState
     public override void Enter()
     {
         base.Enter();
-
         Movement?.SetVelocityX(0.0f);
     }
 

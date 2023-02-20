@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bccb0642be8e3148919e27c5c407e00, type: 3}
   m_Name: MikoshiNyudo_RangedAttackData
   m_EditorClassIdentifier: 
-  projectile: {fileID: 9219587877994967618, guid: 6fa3c73f4c5603742b154610c2d40e0c, type: 3}
+  projectile: {fileID: 6181885866316912661, guid: d8fbd2a176de38746b165bbd2483d85b, type: 3}
   projectileDamage: 10
   midRangeAttackDamage: 10
   midRangeAttackradius: 0.75
   projectileSpeed: 500
   projectileTravelDistance: 500
-  LongRangeAttackDistance: 50
+  LongRangeAttackDistance: 30
   MidRangeAttackDistance: 10
   whatIsPlayer:
     serializedVersion: 2

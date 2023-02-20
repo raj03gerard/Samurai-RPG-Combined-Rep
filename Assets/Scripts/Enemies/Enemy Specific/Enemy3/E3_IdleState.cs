@@ -34,7 +34,7 @@ public class E3_IdleState : IdleState
             else stateMachine.ChangeState(enemy.lookForPlayerState);
         }
         else if (isIdleTimeOver)
-        {
+        {   
             stateMachine.ChangeState(enemy.moveState);
         }
     }

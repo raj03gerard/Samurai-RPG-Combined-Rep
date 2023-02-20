@@ -58,6 +58,7 @@ public class Enemy3 : Entity
 
     #region GameLogic Variables
     public bool hasDetectedPlayer = false;
+    public bool hasBossFightStarted = false;
     #endregion
     public override void Awake()
     {
@@ -80,7 +81,9 @@ public class Enemy3 : Entity
 
     private void Start()
     {
-        stateMachine.Initialize(moveState);
+
+        stateMachine.Initialize(idleState);
+        movement?.Flip();
     }
 
     //----------------Test Code-----------------------------------------------------
@@ -98,7 +101,6 @@ public class Enemy3 : Entity
         return playerCheck;
     }
     
-
     public override void OnDrawGizmos()
     {
         base.OnDrawGizmos();

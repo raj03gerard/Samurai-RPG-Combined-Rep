@@ -6,7 +6,7 @@ public class Movement : CoreComponent
 {
     public Rigidbody2D RB { get; private set; }
 
-    public int FacingDirection { get; private set; }
+    public int FacingDirection { get;  set; }
 
     public bool CanSetVelocity { get; set; }
 

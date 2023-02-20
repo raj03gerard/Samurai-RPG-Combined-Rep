@@ -16,6 +16,7 @@ public class AttackState : State
     protected bool isKnockbackActive;
 
     protected bool isPlayerInMinAgroRange;
+
     public AttackState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, Transform attackPosition) : base(entity, stateMachine, animBoolName)
     {
         this.attackPosition = attackPosition;

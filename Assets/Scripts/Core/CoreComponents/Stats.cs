@@ -6,8 +6,8 @@ using System;
 public class Stats : CoreComponent
 {
     [SerializeField] 
-    private float maxHealth;
-    private float currentHealth;
+    public float maxHealth;
+    public float currentHealth;
 
     [SerializeField]
     public float maxShield;
