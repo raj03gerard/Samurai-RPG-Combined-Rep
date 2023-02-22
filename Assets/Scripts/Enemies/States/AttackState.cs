@@ -5,7 +5,7 @@ using UnityEngine;
 public class AttackState : State
 {
     private Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
-    private Movement movement;
+    protected Movement movement;
 
     private Combat Combat { get => combat ?? core.GetCoreComponent(ref combat); }
     private Combat combat;

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bccb0642be8e3148919e27c5c407e00, type: 3}
   m_Name: MikoshiNyudo_RangedAttackData
   m_EditorClassIdentifier: 
-  projectile: {fileID: 6181885866316912661, guid: d8fbd2a176de38746b165bbd2483d85b, type: 3}
+  projectile: {fileID: 7682821767473096630, guid: b35cd153187d76f42a730e9064a63af8, type: 3}
   projectileDamage: 10
   midRangeAttackDamage: 10
   midRangeAttackradius: 0.75

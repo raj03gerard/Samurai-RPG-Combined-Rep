@@ -73,6 +73,6 @@ public class MidRangeAttackState_Type_2 : RangedAttackState
     {
         //base.TriggerAttack();
         projectile = GameObject.Instantiate(stateData.projectile, enemy.midRangedAttackPosition.position, enemy.midRangedAttackPosition.rotation);
-        projectile.GetComponent<AimedProjectile>().FireProjectile();
+        projectile.GetComponent<AimedProjectile>().FireProjectile(movement.FacingDirection);
     }
 }

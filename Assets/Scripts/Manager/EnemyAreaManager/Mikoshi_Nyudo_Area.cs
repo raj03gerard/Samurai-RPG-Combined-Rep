@@ -17,7 +17,7 @@ public class Mikoshi_Nyudo_Area : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             gameManager.enemy_engaged_with = GameManager.EnemyNames.Mikoshi_Nyudo;
-            gameManager.ShowBossPrompt(GameManager.EnemyNames.Mikoshi_Nyudo);
+            gameManager.PlayBossCinematic(GameManager.EnemyNames.Mikoshi_Nyudo);
             Debug.Log("Player Entered M_Nyudo territory");
             this.gameObject.SetActive(false);
         }

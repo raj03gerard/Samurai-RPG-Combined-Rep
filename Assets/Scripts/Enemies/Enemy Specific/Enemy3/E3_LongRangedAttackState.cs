@@ -76,7 +76,8 @@ public class E3_LongRangedAttackState : RangedAttackState
     {
         //base.TriggerAttack();
         projectile = GameObject.Instantiate(stateData.projectile, enemy.rangedAttackPosition.position, enemy.rangedAttackPosition.rotation);
-        projectile.GetComponent<AimedProjectile>().FireProjectile();
+        projectile.GetComponent<AimedProjectile>().FireProjectile(movement.FacingDirection);
+        
     }
 
 }

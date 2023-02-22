@@ -8,6 +8,15 @@ public class CinemachineSwitcher : MonoBehaviour
     private Animator anim;
     [SerializeField]
     private bool BaseCamera = true;
+
+    [SerializeField]
+    GameObject Mikoshi_Nyudo_Cinematic_Holder;
+    [SerializeField]
+    GameObject Mikoshi_Nyudo_Main_Body;
+    [SerializeField]
+    GameObject Mikoshi_Nyudo_Spwan_Point;
+    [SerializeField]
+    GameObject Mikoshi_Nyudo_VCam;
     void Awake()
     {
         anim = GameObject.Find("CM StateDrivenCamera1").GetComponent<Animator>();

@@ -35,14 +35,25 @@ public class GameManager : MonoBehaviour
     GameObject RedFlashOnScreen;
     [SerializeField]
     GameObject Player;
-    Animator CinemachineAnim;
+    public Animator CinemachineAnim;
+
+    [SerializeField]
+    GameObject Mikoshi_Nyudo_Cinematic_Holder;
+    [SerializeField]
+    GameObject Mikoshi_Nyudo_Main_Body;
+    [SerializeField]
+    GameObject Mikoshi_Nyudo_Spwan_Point;
+    [SerializeField]
+    GameObject Mikoshi_Nyudo_VCam;
     void OnEnable()
     {
         Combat.FlashScreenRed += FlashRedOnBeingHit;
+        CinematicEventHandler.ShowBossPromptEvent += DisplayBossPrompt;
     }
     void OnDisable()
     {
         Combat.FlashScreenRed -= FlashRedOnBeingHit;
+        CinematicEventHandler.ShowBossPromptEvent -= DisplayBossPrompt;
     }
     private void Start()
     {
@@ -63,6 +74,22 @@ public class GameManager : MonoBehaviour
         }
         CheckReswapn();
     }
+    public void PlayBossCinematic(EnemyNames enemyName)
+    {
+        if(enemyName== EnemyNames.Mikoshi_Nyudo)
+        {
+            Mikoshi_Nyudo_Cinematic_Holder.SetActive(true);
+            CinemachineAnim.Play("Mikoshi Nyudo Cineamtic Cam");
+        }
+    }
+    void DisplayBossPrompt(EnemyNames enemyName)
+    {
+        Debug.Log("Linkin Park");
+        if(enemyName== EnemyNames.Mikoshi_Nyudo)
+        {
+            ShowBossPrompt(EnemyNames.Mikoshi_Nyudo);
+        }
+    }
     public void ShowBossPrompt(EnemyNames enemeyName)
     {
         if(enemeyName == EnemyNames.Mikoshi_Nyudo)
@@ -70,6 +97,9 @@ public class GameManager : MonoBehaviour
             Mikoshi_Nyudo_Boss_Prompt.SetActive(true);
             Boss_Prompt = Mikoshi_Nyudo_Boss_Prompt;
             Boss_Health_Bar = Mikoshi_Nyudo_Health_Bar;
+            Mikoshi_Nyudo_Cinematic_Holder.SetActive(false);
+            Mikoshi_Nyudo_Main_Body.SetActive(true);
+            Mikoshi_Nyudo_VCam.GetComponent<CinemachineVirtualCamera>().Follow = Mikoshi_Nyudo_Main_Body.transform;
             Time.timeScale = 0;
             Boss_Prompt.transform.Find("CloseBtn").GetComponent<Animator>().Play("BossPromptCloseBtn");
         }
@@ -78,6 +108,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Remove Boss prompt");
         Time.timeScale = 1;
+        CinemachineAnim.Play("Tunnel");
         Boss_Prompt.SetActive(false);
         Boss_Health_Bar.SetActive(true);
     }

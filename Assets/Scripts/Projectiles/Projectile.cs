@@ -33,7 +33,7 @@ public class Projectile : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         rb.gravityScale = 0.0f;
-        rb.velocity = transform.right * speed;
+        rb.velocity = transform.up * speed;
 
         isGravityOn = false;
         
