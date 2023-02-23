@@ -15,6 +15,10 @@ public class AimedProjectile : MonoBehaviour
     public bool isProjectileFired = false;
     bool isGravityOn = false;
     int FacingDirection = 1;
+
+    public GameObject HitSplash;
+    [SerializeField]
+    GameObject damagePosition;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -33,20 +37,20 @@ public class AimedProjectile : MonoBehaviour
             else
             { if (FacingDirection > 0)
                 {
-                    transform.Rotate(transform.forward.normalized * -30f * Time.deltaTime);
+                    transform.Rotate(transform.forward.normalized * -15f * Time.deltaTime);
                 }
                 else
                 {
-                    transform.Rotate(transform.forward.normalized * 30f * Time.deltaTime);
+                    transform.Rotate(transform.forward.normalized * 15f * Time.deltaTime);
                 }
              }
         }
     }
     IEnumerator StartDipping()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.05f);
         isGravityOn = true;
-        rb.gravityScale = 2;
+        rb.gravityScale = 5;
     }
     public void FireProjectile(int facingDirection)
     {
@@ -63,7 +67,7 @@ public class AimedProjectile : MonoBehaviour
         if (collision.gameObject.name==("Combat"))
         { 
             collision.gameObject.GetComponent<Combat>().Damage(5f);
-            
+            Instantiate(HitSplash, damagePosition.transform.position,damagePosition.transform.rotation);
             Destroy(this.gameObject);
             
         }

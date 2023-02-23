@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
         if(enemyName== EnemyNames.Mikoshi_Nyudo)
         {
             Mikoshi_Nyudo_Cinematic_Holder.SetActive(true);
+
             CinemachineAnim.Play("Mikoshi Nyudo Cineamtic Cam");
         }
     }

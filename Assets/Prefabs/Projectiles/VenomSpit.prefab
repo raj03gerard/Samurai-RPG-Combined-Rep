@@ -9722,14 +9722,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2774827619465874065}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.057001714, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0.191, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7734713834881729057}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &6563159265353081288
 GameObject:
   m_ObjectHideFlags: 0
@@ -9793,7 +9793,7 @@ Transform:
   m_GameObject: {fileID: 7682821767473096630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1059.23, y: 71.48, z: 0}
-  m_LocalScale: {x: 0.8199914, y: 1.5999832, z: 1.5999832}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7734713834881729057}
@@ -9888,6 +9888,8 @@ MonoBehaviour:
   targetPosition: {x: 0, y: 0, z: 0}
   direction: {x: 0, y: 0, z: 0}
   isProjectileFired: 0
+  HitSplash: {fileID: 6808460973743004790, guid: d1d5cb088242a354d9c2a5463d86ac6d, type: 3}
+  damagePosition: {fileID: 2774827619465874065}
 --- !u!61 &5144609665784871761
 BoxCollider2D:
   m_ObjectHideFlags: 0
