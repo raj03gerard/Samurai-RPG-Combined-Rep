@@ -42,7 +42,7 @@ public class E1_StunState : StunState
             }
             else
             {
-                //enemy.lookForPlayerState.SetTurnImmediately(true);
+                enemy.lookForPlayerState.SetTurnImmediately(true);
                 stateMachine.ChangeState(enemy.lookForPlayerState);
             }
         }

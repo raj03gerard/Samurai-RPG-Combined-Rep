@@ -15,6 +15,7 @@ public class E3_PlayerDetectedState : PlayerDetectedState
     public override void Enter()
     {
         base.Enter();
+        base.DoChecks();
         Movement?.SetVelocityX(0.0f);
     }
 
@@ -25,7 +26,7 @@ public class E3_PlayerDetectedState : PlayerDetectedState
 
     public override void LogicUpdate()
     {
-        
+
         base.LogicUpdate();
 
         if (isKnockbackActive)
@@ -33,44 +34,36 @@ public class E3_PlayerDetectedState : PlayerDetectedState
             Debug.Log("STUN While in PlayerDetectedState!!");
             stateMachine.ChangeState(enemy.stunState);
         }
-
-        if (performCloseRangeAction)
-        {  
-            stateMachine.ChangeState(enemy.meleeAttackState);
-
-        }
-        else if (performLongRangeAction)
+        if (isAnimationCompleted)
         {
-             if (isInMidRangeAttackDistance())
+            if (performCloseRangeAction)
+            {
+                stateMachine.ChangeState(enemy.meleeAttackState);
+
+            }
+            else if (performMidRangeAction)
             {
                 int randInt = Random.Range(1, 3);
                 if (randInt == 1)
                     stateMachine.ChangeState(enemy.chargeState);
-                else if(enemy.enemyType== Enemy3.EnemyType.mikoshi_nyudo)
-                    stateMachine.ChangeState(enemy.midRangeAttackState);
-                else if (enemy.enemyType == Enemy3.EnemyType.o_kiku)
-                    stateMachine.ChangeState(enemy.midRangeAttackState_type_2);
+                else stateMachine.ChangeState(enemy.midRangeAttackState);
             }
-            else if (isInLongRangeAttackDistance())
+
+            else if (performLongRangeAction)
             {
-
-                int randInt = Random.Range(1, 3);
-                if (randInt == 1)
-                    stateMachine.ChangeState(enemy.chargeState);
-                else stateMachine.ChangeState(enemy.rangedAttackState);
+                stateMachine.ChangeState(enemy.rangedAttackState);
             }
-            
-            else stateMachine.ChangeState(enemy.chargeState);
 
-        }
-        else if (!isPlayerInMaxAgroRange)
-        {
-            stateMachine.ChangeState(enemy.lookForPlayerState);
-        }
-        else if (!isDetectingLedge)
-        {
-            Movement?.Flip();
-            stateMachine.ChangeState(enemy.moveState);
+
+            else if (!isPlayerInMaxAgroRange)
+            {
+                stateMachine.ChangeState(enemy.lookForPlayerState);
+            }
+            else if (!isDetectingLedge)
+            {
+                Movement?.Flip();
+                stateMachine.ChangeState(enemy.moveState);
+            }
         }
 
     }
@@ -79,19 +72,11 @@ public class E3_PlayerDetectedState : PlayerDetectedState
     {
         base.PhysicsUpdate();
     }
-
-    public bool isInLongRangeAttackDistance()
+    public override void AnimationFinishTrigger()
     {
-        Transform playerCheck = enemy.GetPlayerCheckPosition();
-        return Physics2D.Raycast(playerCheck.position, entity.transform.right, RangedAttackData.LongRangeAttackDistance, entity.entityData.whatIsPlayer);
-        
+        base.AnimationFinishTrigger();
     }
-    public bool isInMidRangeAttackDistance()
-    {
-        Transform playerCheck = enemy.GetPlayerCheckPosition();
-        return Physics2D.Raycast(playerCheck.position, entity.transform.right, RangedAttackData.MidRangeAttackDistance, entity.entityData.whatIsPlayer);
 
-    }
     //public  void OnDrawGizoms()
     //{
     //    Transform playerCheck = enemy.GetPlayerCheckPosition();

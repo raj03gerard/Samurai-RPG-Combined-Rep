@@ -12,7 +12,7 @@ public class Shield : CoreComponent, IBlockable
     private bool isRegeneratingShield = false;
     private Stats Stats { get => stats ?? core.GetCoreComponent(ref stats); }
     private Stats stats;
-    [SerializeField] private float shieldRefillSpeed = 5;
+    [SerializeField] private float shieldRefillSpeed = 20;
     [SerializeField] Image shieldBar;
     [SerializeField] Color defaultShieldColor;
     [SerializeField] ParticleSystem ShieldHitParticles;
@@ -24,7 +24,7 @@ public class Shield : CoreComponent, IBlockable
         if (Stats.currentShieldHealth < Stats.maxShield)
             isRegeneratingShield = true;
 
-        if (Stats.currentShieldHealth <= Stats.maxShield * 0.5)
+        if (Stats.currentShieldHealth <= Stats.maxShield * 0.3)
         {
             canDeployShield = false;
             shieldBar.color = Color.yellow;
@@ -34,7 +34,7 @@ public class Shield : CoreComponent, IBlockable
             canDeployShield = true;
             shieldBar.color = defaultShieldColor;
         }
-        shieldBar.fillAmount = RemapValue(50, 0, 1, 0, Stats.currentShieldHealth);
+        shieldBar.fillAmount = RemapValue(100, 0, 1, 0, Stats.currentShieldHealth);
 
     }
     public void DamageShield(float amount)

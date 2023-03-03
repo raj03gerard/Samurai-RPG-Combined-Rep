@@ -36,7 +36,7 @@ public class Enemy2 : Entity
     [SerializeField]
     private Transform meleeAttackPosition;
     [SerializeField]
-    private Transform rangedAttackPosition;
+    public Transform rangedAttackPosition;
 
     public override void Awake()
     {

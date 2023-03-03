@@ -22,6 +22,7 @@ public class PlayerExitBlockState : PlayerAbilityState
     }
     public override void AnimationFinishTrigger()
     {
+        Debug.Log("ExitingBlockState");
         stateMachine.ChangeState(player.IdleState);
     }
 }

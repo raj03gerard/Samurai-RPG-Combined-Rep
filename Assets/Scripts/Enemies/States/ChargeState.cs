@@ -17,6 +17,8 @@ public class ChargeState : State
     protected bool isDetectingWall;
     protected bool isChargeTimeOver;
     protected bool performCloseRangeAction;
+    protected bool performMidRangeAction;
+    protected bool performLongRangeAction;
     public ChargeState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_ChargeState stateData) : base(entity, stateMachine, animBoolName)
     {
         this.stateData = stateData;
@@ -31,6 +33,8 @@ public class ChargeState : State
         isDetectingWall = CollisionSenses.WallFront;
 
         performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
+        performMidRangeAction = entity.CheckPlayerInMidRangeAction();
+        performLongRangeAction = entity.CheckPlayerInLongRangeAction();
     }
 
     public override void Enter()

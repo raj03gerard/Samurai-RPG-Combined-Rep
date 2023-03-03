@@ -28,7 +28,6 @@ public class PlayerAnimStatesControls : MonoBehaviour
         Player.canJump = true;
         this.GetComponent<Animator>().SetBool("slide", false);
         this.GetComponent<Animator>().SetBool("roll", false);
-        this.GetComponent<Player>().GroundRollState.AnimationTrigger();
 
     }
     #endregion

@@ -1,0 +1,466 @@
+fileFormatVersion: 2
+guid: 5ab8b28d343d521449640579e13036a3
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: WaterSpitSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 312
+        width: 171.42857
+        height: 312
+      alignment: 9
+      pivot: {x: 0.7911577, y: 0.3836532}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65fa08ebaf5a3bb4ca1cf9acbcade9a2
+      internalID: 494875731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpitSheet_1
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 312
+        width: 171.42857
+        height: 312
+      alignment: 9
+      pivot: {x: 0.71175104, y: 0.38074455}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a2032e7083905342a099815e76ff3a1
+      internalID: 111890256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpitSheet_2
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 312
+        width: 171.42857
+        height: 312
+      alignment: 9
+      pivot: {x: 0.60587555, y: 0.3778359}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cfd2c668aecb174082f7684d0c6b190
+      internalID: -2067266522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpitSheet_3
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 312
+        width: 171.42857
+        height: 312
+      alignment: 9
+      pivot: {x: 0.5370565, y: 0.36620116}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4db6ce8a069da1646a677e9acff0f01f
+      internalID: 126254774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpitSheet_4
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 312
+        width: 171.42857
+        height: 312
+      alignment: 9
+      pivot: {x: 0.45235604, y: 0.3720185}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1fe510941c6cd048b43d3eb1fe689f4
+      internalID: -1335424244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpitSheet_5
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 312
+        width: 171.42857
+        height: 312
+      alignment: 9
+      pivot: {x: 0.40471205, y: 0.3691098}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5823f4e5cbdcc854b92d967ed9b07a44
+      internalID: 1706717255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpitSheet_6
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 312
+        width: 171.42857
+        height: 312
+      alignment: 9
+      pivot: {x: 0.3147173, y: 0.3720185}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38f8a0a4122f8c443a6387d8124d7521
+      internalID: -1285741912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpitSheet_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 171.42857
+        height: 312
+      alignment: 9
+      pivot: {x: 0.7488075, y: 0.4214658}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f23ffbe40e263c46be4c26ca893f696
+      internalID: 1350238526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpitSheet_8
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 0
+        width: 171.42857
+        height: 312
+      alignment: 9
+      pivot: {x: 0.6588133, y: 0.42728317}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f52a06385e49a4408029da614064bd7
+      internalID: -1148014755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpitSheet_9
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 0
+        width: 171.42857
+        height: 312
+      alignment: 9
+      pivot: {x: 0.57940674, y: 0.43891785}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7782c145bea2a04ea22ab1c49e7634f
+      internalID: 759908891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpitSheet_10
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 0
+        width: 171.42857
+        height: 312
+      alignment: 9
+      pivot: {x: 0.50000006, y: 0.41855714}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea20b756ce984af42808999415a18b0c
+      internalID: 580389601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpitSheet_11
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 0
+        width: 171.42857
+        height: 312
+      alignment: 9
+      pivot: {x: 0.44706246, y: 0.4331005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 498b7f77be0ee1c46a69de8ce5723af1
+      internalID: 2136965663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpitSheet_12
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 0
+        width: 171.42857
+        height: 312
+      alignment: 9
+      pivot: {x: 0.36765558, y: 0.41855714}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4251088422cad6f45a5d941054f8d883
+      internalID: -1505015590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterSpitSheet_13
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 0
+        width: 171.42857
+        height: 312
+      alignment: 9
+      pivot: {x: 0.27766082, y: 0.42437452}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b820b3b2f4b85d4bba98b3648d89da6
+      internalID: 1104860969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      WaterSpitSheet_9: 759908891
+      WaterSpitSheet_2: -2067266522
+      WaterSpitSheet_1: 111890256
+      WaterSpitSheet_10: 580389601
+      WaterSpitSheet_3: 126254774
+      WaterSpitSheet_6: -1285741912
+      WaterSpitSheet_8: -1148014755
+      WaterSpitSheet_13: 1104860969
+      WaterSpitSheet_0: 494875731
+      WaterSpitSheet_5: 1706717255
+      WaterSpitSheet_12: -1505015590
+      WaterSpitSheet_4: -1335424244
+      WaterSpitSheet_11: 2136965663
+      WaterSpitSheet_7: 1350238526
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

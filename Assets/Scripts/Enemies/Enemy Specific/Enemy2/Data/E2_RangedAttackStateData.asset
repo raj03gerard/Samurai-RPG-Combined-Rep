@@ -12,7 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bccb0642be8e3148919e27c5c407e00, type: 3}
   m_Name: E2_RangedAttackStateData
   m_EditorClassIdentifier: 
-  projectile: {fileID: 6797885682259544748, guid: 0d59935db3714f74aaca4c68aa3b9f3f, type: 3}
+  projectile: {fileID: 7682821767473096630, guid: b35cd153187d76f42a730e9064a63af8, type: 3}
   projectileDamage: 10
+  midRangeAttackDamage: 10
+  midRangeAttackradius: 0.75
   projectileSpeed: 50
   projectileTravelDistance: 8
+  LongRangeAttackDistance: 20
+  MidRangeAttackDistance: 10
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 0
+  knockbackStrength: 10
+  knockbackAngle: {x: 1, y: 1}

@@ -45,7 +45,7 @@ public class E3_MeleeAttackState : MeleeAttackState
             if (isPlayerInMinAgroRange)
             {
 
-                stateMachine.ChangeState(enemy.angryIdleState);
+                stateMachine.ChangeState(enemy.playerDetectedState);
 
 
             }

@@ -5,8 +5,7 @@ using UnityEngine;
 public class MidRangeAttackState_Type_2 : RangedAttackState
 {
     Enemy3 enemy;
-    private Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
-    private Movement movement;
+
     public MidRangeAttackState_Type_2(Entity entity, FiniteStateMachine stateMachine, string animBoolName, Transform attackPosition, D_RangedAttackState stateData, Enemy3 enemy) : base(entity, stateMachine, animBoolName, attackPosition, stateData)
     {
         this.enemy = enemy;
@@ -52,7 +51,7 @@ public class MidRangeAttackState_Type_2 : RangedAttackState
                     stateMachine.ChangeState(enemy.chargeState);
                 else
                 {
-                    stateMachine.ChangeState(enemy.angryIdleState);
+                    stateMachine.ChangeState(enemy.playerDetectedState);
                 }
 
             }

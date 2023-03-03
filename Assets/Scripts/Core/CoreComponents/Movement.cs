@@ -22,6 +22,7 @@ public class Movement : CoreComponent
         CanSetVelocity = true;
 
         RB = GetComponentInParent<Rigidbody2D>();
+        Flip();
     }
 
     public override void LogicUpdate()

@@ -22,17 +22,6 @@ public class AnimationToStatemachine : MonoBehaviour
         attackState.FinishAttack();
     }
 
-    public void EnterHurtState()
-    {
-        //stunState.LogicUpdate();
-    }
-    public void ExitPlayerDetectedState()
-    {
-        anim.SetBool("playerDetected", false);
-    }
-   public void ExitPlayerForgottenState()
-    {
-        anim.SetBool("playerForgotten", false);
-        
-    }
+
+
 }

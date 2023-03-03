@@ -37,18 +37,18 @@ public class AimedProjectile : MonoBehaviour
             else
             { if (FacingDirection > 0)
                 {
-                    transform.Rotate(transform.forward.normalized * -15f * Time.deltaTime);
+                    transform.Rotate(transform.forward.normalized * -10f * Time.deltaTime);
                 }
                 else
                 {
-                    transform.Rotate(transform.forward.normalized * 15f * Time.deltaTime);
+                    transform.Rotate(transform.forward.normalized * 10f * Time.deltaTime);
                 }
              }
         }
     }
     IEnumerator StartDipping()
     {
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.4f);
         isGravityOn = true;
         rb.gravityScale = 5;
     }
@@ -58,6 +58,7 @@ public class AimedProjectile : MonoBehaviour
         targetPosition = new Vector3(targetPosition.x * 100, this.transform.position.y, this.transform.position.z);
         isProjectileFired = true;
         this.FacingDirection = facingDirection;
+        Debug.Log("Projectile firedd");
         Destroy(this.gameObject, 1f);
 
     }
@@ -65,11 +66,27 @@ public class AimedProjectile : MonoBehaviour
     {
         Debug.Log(this.gameObject.name + " has hit " + collision.gameObject.name);
         if (collision.gameObject.name==("Combat"))
-        { 
-            collision.gameObject.GetComponent<Combat>().Damage(5f);
-            Instantiate(HitSplash, damagePosition.transform.position,damagePosition.transform.rotation);
-            Destroy(this.gameObject);
+        {
+            Combat combat = collision.gameObject.GetComponent<Combat>();
+            Shield shield = collision.gameObject.GetComponent<Shield>();
+            if (shield == null || !shield.canBeDamagedNow)
+            {
+                shield.DamageShield(10f);
+            }
+            else 
+            {
+                Debug.Log("shield= " + shield + shield.canBeDamagedNow);
+                combat.Damage(5f);
+                Instantiate(HitSplash, damagePosition.transform.position, damagePosition.transform.rotation);
+            }
+
             
+            Destroy(this.gameObject);  
+        }
+        else if(collision.gameObject.CompareTag("Ground"))
+        {
+            Instantiate(HitSplash, damagePosition.transform.position, damagePosition.transform.rotation);
+            Destroy(this.gameObject);
         }
     }
 

@@ -10,7 +10,7 @@ public class State
     public float startTime { get; protected set; }
 
     protected string animBoolName;
-
+    protected bool isAnimationCompleted;
     public State(Entity entity, FiniteStateMachine stateMachine, string animBoolName)
     {
         this.entity = entity;
@@ -21,9 +21,10 @@ public class State
 
     public virtual void Enter()
     {
-        
+
         startTime = Time.time;
         entity.anim.SetBool(animBoolName, true);
+        isAnimationCompleted = false;
         //Debug.Log(animBoolName);
 
         DoChecks();
@@ -47,5 +48,9 @@ public class State
     public virtual void DoChecks()
     {
 
+    }
+    public virtual void AnimationFinishTrigger()
+    {
+        isAnimationCompleted = true;
     }
 }

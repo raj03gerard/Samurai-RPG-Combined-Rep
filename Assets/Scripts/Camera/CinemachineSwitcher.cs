@@ -9,14 +9,7 @@ public class CinemachineSwitcher : MonoBehaviour
     [SerializeField]
     private bool BaseCamera = true;
 
-    [SerializeField]
-    GameObject Mikoshi_Nyudo_Cinematic_Holder;
-    [SerializeField]
-    GameObject Mikoshi_Nyudo_Main_Body;
-    [SerializeField]
-    GameObject Mikoshi_Nyudo_Spwan_Point;
-    [SerializeField]
-    GameObject Mikoshi_Nyudo_VCam;
+    
     void Awake()
     {
         anim = GameObject.Find("CM StateDrivenCamera1").GetComponent<Animator>();
@@ -38,22 +31,30 @@ public class CinemachineSwitcher : MonoBehaviour
 
         BaseCamera = !BaseCamera;
     }
+    void SwitchToThisVCam()
+    {
+        anim.Play(this.gameObject.name);
+    }
+    void SwitchToCollidedVCam()
+    {
 
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             Debug.Log("Call switchstate after colliding with " + collision.gameObject.name);
-            SwitchState();
+            //SwitchState();
+            SwitchToThisVCam();
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            Debug.Log("Call switchstate after colliding with " + collision.gameObject.name);
-            SwitchState();
-        }
-    }
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("Player"))
+    //    {
+    //        Debug.Log("Call switchstate after colliding with " + collision.gameObject.name);
+    //        SwitchState();
+    //    }
+    //}
 }

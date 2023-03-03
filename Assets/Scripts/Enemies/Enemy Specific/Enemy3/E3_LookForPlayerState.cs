@@ -31,18 +31,14 @@ public class E3_LookForPlayerState : LookForPlayerState
 
         if (isPlayerInMinAgroRange)
         {
-            if (!enemy.hasDetectedPlayer)
-            {
-                enemy.hasDetectedPlayer = true;
-                stateMachine.ChangeState(enemy.playerDetectedState);
-            }
-            else stateMachine.ChangeState(enemy.chargeState);
+
+            stateMachine.ChangeState(enemy.playerDetectedState);
         }
         else if (isAllTurnsTimeDone)
         {
             if (enemy.hasDetectedPlayer)
                 enemy.hasDetectedPlayer = false;
-            stateMachine.ChangeState(enemy.retractNeckState);
+            stateMachine.ChangeState(enemy.forgetPlayerState);
         }
     }
 

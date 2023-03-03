@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class MeleeAttackState : AttackState
 {
-    private Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
-    private Movement movement;
-
     protected D_MeleeAttackState stateData;
 
     public MeleeAttackState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, Transform attackPosition, D_MeleeAttackState stateData) : base(entity, stateMachine, animBoolName, attackPosition)

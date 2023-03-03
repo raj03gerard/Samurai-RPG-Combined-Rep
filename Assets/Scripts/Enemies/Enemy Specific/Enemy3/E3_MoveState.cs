@@ -5,6 +5,13 @@ using UnityEngine;
 public class E3_MoveState : MoveState
 {
     private Enemy3 enemy;
+    private Combat Combat { get => combat ?? core.GetCoreComponent(ref combat); }
+    private Combat combat;
+    private bool isKnockbackActive;
+    bool isPlayerBehindEnemy;
+
+    private Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
+    private Movement movement;
     public E3_MoveState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_MoveState stateData, Enemy3 enemy) : base(entity, stateMachine, animBoolName, stateData)
     {
         this.enemy = enemy;
@@ -19,19 +26,29 @@ public class E3_MoveState : MoveState
     {
         base.Exit();
     }
+    public override void DoChecks()
+    {
+        base.DoChecks();
+        isKnockbackActive = Combat.isKnockbackActive;
 
+    }
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        if (isKnockbackActive)
+        {
 
+            isPlayerBehindEnemy = entity.CheckPlayerBehindEnemy();
+            if (isPlayerBehindEnemy)
+            {
+                
+                Debug.Log("Player behind enemy!");
+            }
+        }
         if (isPlayerInMinAgroRange)
         {
-            if (!enemy.hasDetectedPlayer)
-            {
-                enemy.hasDetectedPlayer = true;
-                stateMachine.ChangeState(enemy.playerDetectedState);
-            }
-            else stateMachine.ChangeState(enemy.lookForPlayerState);
+            enemy.hasDetectedPlayer = true;
+            stateMachine.ChangeState(enemy.enterAngryState);
         }
         else if (isDetectingWall || !isDetectingLedge)
         {

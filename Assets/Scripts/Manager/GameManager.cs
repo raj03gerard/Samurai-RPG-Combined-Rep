@@ -8,8 +8,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Transform respawnPoint;
     [SerializeField]
-    private GameObject player;
-    [SerializeField]
     private float respawnTime;
 
     private float respawnTimeStart;
@@ -24,8 +22,14 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject Mikoshi_Nyudo_Boss_Prompt;
 
+    [SerializeField]
+    GameObject Jorogumo_Health_Bar;
+    [SerializeField]
+    GameObject Jorogumo_Boss_Prompt;
+
     public GameObject Boss_Prompt;
     GameObject Boss_Health_Bar;
+    GameObject Boss_Arena_Blocker;
     public enum EnemyNames {Default, Jorogumo, Mikoshi_Nyudo, Shunga_Tako, Minion, O_Kiku};
 
     public bool isFightingBoss= false;
@@ -45,32 +49,65 @@ public class GameManager : MonoBehaviour
     GameObject Mikoshi_Nyudo_Spwan_Point;
     [SerializeField]
     GameObject Mikoshi_Nyudo_VCam;
+    [SerializeField]
+    GameObject Mikoshi_Nyudo_Arena_Blocker;
+
+
+    [SerializeField]
+    GameObject Jorogumo_Cinematic_Holder;
+    [SerializeField]
+    GameObject Jorogumo_Main_Body;
+    [SerializeField]
+    GameObject Jorogumo_Cinematic_VCam;
+    [SerializeField]
+    GameObject Jorogumo_Arena_Blocker;
+
+    [SerializeField]
+    GameObject EscapePrompt;
+    bool isEscapePromptActive = false;
+
+    [SerializeField]
+     public GameObject EnemyDamgedAmountTextContainer;
+    [SerializeField]
+    GameObject EnemyDamgedAmountText;
     void OnEnable()
     {
         Combat.FlashScreenRed += FlashRedOnBeingHit;
+        Combat.FlashDamageAmount += FlashEnemyDamageAmount;
         CinematicEventHandler.ShowBossPromptEvent += DisplayBossPrompt;
     }
     void OnDisable()
     {
         Combat.FlashScreenRed -= FlashRedOnBeingHit;
+        Combat.FlashDamageAmount -= FlashEnemyDamageAmount;
         CinematicEventHandler.ShowBossPromptEvent -= DisplayBossPrompt;
     }
     private void Start()
     {
         CinemachineAnim = GameObject.Find("CM StateDrivenCamera1").GetComponent<Animator>();
         Mikoshi_Nyudo_Health_Bar.SetActive(false);
-        CVC = GameObject.Find("Player Camera").GetComponent<CinemachineVirtualCamera>();
+        //CVC = GameObject.Find("Player Camera").GetComponent<CinemachineVirtualCamera>();
         RedFlashOnScreen.SetActive(false);
+        EscapePrompt.SetActive(false);
     }
     
     private void Update()
     {
         
-        if(enemy_engaged_with== EnemyNames.Mikoshi_Nyudo)
+       
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Engaged w M_Nyudo");
-            
-            isFightingBoss = true;
+            if(!isEscapePromptActive)
+            {
+                EscapePrompt.SetActive(true);
+                isEscapePromptActive = true;
+            }
+            else
+            {
+                EscapePrompt.SetActive(false);
+                isEscapePromptActive = false;
+            }
+
         }
         CheckReswapn();
     }
@@ -81,15 +118,19 @@ public class GameManager : MonoBehaviour
             Mikoshi_Nyudo_Cinematic_Holder.SetActive(true);
 
             CinemachineAnim.Play("Mikoshi Nyudo Cineamtic Cam");
+            Boss_Arena_Blocker = Mikoshi_Nyudo_Arena_Blocker;
         }
+        else if(enemyName== EnemyNames.Jorogumo)
+        {
+            Jorogumo_Cinematic_Holder.SetActive(true);
+            CinemachineAnim.Play("Jorogumo Cineamtic Cam");
+            Boss_Arena_Blocker = Jorogumo_Arena_Blocker;
+        }
+        Boss_Arena_Blocker.SetActive(true);
     }
     void DisplayBossPrompt(EnemyNames enemyName)
     {
-        Debug.Log("Linkin Park");
-        if(enemyName== EnemyNames.Mikoshi_Nyudo)
-        {
-            ShowBossPrompt(EnemyNames.Mikoshi_Nyudo);
-        }
+        ShowBossPrompt(enemyName);
     }
     public void ShowBossPrompt(EnemyNames enemeyName)
     {
@@ -102,14 +143,27 @@ public class GameManager : MonoBehaviour
             Mikoshi_Nyudo_Main_Body.SetActive(true);
             Mikoshi_Nyudo_VCam.GetComponent<CinemachineVirtualCamera>().Follow = Mikoshi_Nyudo_Main_Body.transform;
             Time.timeScale = 0;
-            Boss_Prompt.transform.Find("CloseBtn").GetComponent<Animator>().Play("BossPromptCloseBtn");
+        }
+        else if(enemeyName== EnemyNames.Jorogumo)
+        {
+            Jorogumo_Boss_Prompt.SetActive(true);
+            Boss_Prompt = Jorogumo_Boss_Prompt;
+            Boss_Health_Bar = Jorogumo_Health_Bar;
+            Jorogumo_Cinematic_Holder.SetActive(false);
+            Jorogumo_Main_Body.SetActive(true);
+            Jorogumo_Cinematic_VCam.GetComponent<CinemachineVirtualCamera>().Follow = Jorogumo_Main_Body.transform;
+            Time.timeScale = 0;
+            
         }
     }
-    public void ResumeGameAfterBossPrompt()
+    public void ResumeGameAfterBossPrompt(string enemyName)
     {
         Debug.Log("Remove Boss prompt");
         Time.timeScale = 1;
-        CinemachineAnim.Play("Tunnel");
+        if (enemyName == "Mikoshi_Nyudo")
+            CinemachineAnim.Play("Tunnel");
+        else if (enemyName == "Jorogumo")
+            CinemachineAnim.Play("SpiderNest");
         Boss_Prompt.SetActive(false);
         Boss_Health_Bar.SetActive(true);
     }
@@ -121,14 +175,20 @@ public class GameManager : MonoBehaviour
 
     private void CheckReswapn()
     {
-        if (Time.time >= respawnTime + respawnTimeStart && respawn)
-        {
-            var playerTemp = Instantiate(player, respawnPoint);
-            CVC.m_Follow = playerTemp.transform;
-            respawn = false;
-        }
+        //if (Time.time >= respawnTime + respawnTimeStart && respawn)
+        //{
+        //    var playerTemp = Instantiate(player, respawnPoint);
+        //    CVC.m_Follow = playerTemp.transform;
+        //    respawn = false;
+        //}
     }
-
+    public void FlashEnemyDamageAmount(float amount)
+    {
+        Debug.Log( "damaged by" + amount );
+        GameObject textObj = Instantiate(EnemyDamgedAmountText, EnemyDamgedAmountTextContainer.transform);
+        textObj.GetComponent<Text>().text = amount + " Hits!!";
+        Destroy(textObj, 2f);
+    }
     void FlashRedOnBeingHit()
     {
         RedFlashOnScreen.SetActive(true);

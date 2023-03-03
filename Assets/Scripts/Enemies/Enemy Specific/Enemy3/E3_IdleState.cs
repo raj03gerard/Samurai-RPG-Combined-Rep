@@ -24,17 +24,13 @@ public class E3_IdleState : IdleState
     {
         base.LogicUpdate();
 
-        if (isPlayerInMinAgroRange )
+        if (isPlayerInMinAgroRange)
         {
-            if (!enemy.hasDetectedPlayer)
-            {
-                enemy.hasDetectedPlayer = true;
-                stateMachine.ChangeState(enemy.playerDetectedState);
-            }
-            else stateMachine.ChangeState(enemy.lookForPlayerState);
+            enemy.hasDetectedPlayer = true;
+            stateMachine.ChangeState(enemy.enterAngryState);
         }
         else if (isIdleTimeOver)
-        {   
+        {
             stateMachine.ChangeState(enemy.moveState);
         }
     }

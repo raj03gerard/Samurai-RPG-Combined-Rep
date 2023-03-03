@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &294853594410789003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 262526064411408065}
+  m_Layer: 7
+  m_Name: PlayerCheckBehind
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &262526064411408065
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294853594410789003}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.59, y: -4.51, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7050508869128238789}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7050508868932706633
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,6 +165,7 @@ Transform:
   - {fileID: 7050508869966255112}
   - {fileID: 7050508869487995450}
   - {fileID: 7050508869232059513}
+  - {fileID: 262526064411408065}
   - {fileID: 7045907852853432737}
   - {fileID: 7045907853603736419}
   m_Father: {fileID: 0}
@@ -288,6 +320,8 @@ MonoBehaviour:
   wallCheck: {fileID: 7050508869513125241}
   ledgeCheck: {fileID: 7050508870426832307}
   playerCheck: {fileID: 7050508870534976499}
+  playerCheckBehind: {fileID: 262526064411408065}
+  enemyType: 0
   idleStateData: {fileID: 11400000, guid: 655e45850e254c946b8c1a37c6165ca0, type: 2}
   moveStateData: {fileID: 11400000, guid: 7475f7e2706f1114784d125620ae1763, type: 2}
   playerDetectedData: {fileID: 11400000, guid: 5e600cf0bfb31ab44b9971a2848d6a20, type: 2}
@@ -295,14 +329,13 @@ MonoBehaviour:
   lookForPlayerData: {fileID: 11400000, guid: 266f53158ebab124aa1948b79ef43da1, type: 2}
   meleeAttackStateData: {fileID: 11400000, guid: 71c6c708bd5b4e84695276d2409eb6fd, type: 2}
   stunStateData: {fileID: 11400000, guid: 601d475c33bf26b47ad035637ed2f8f4, type: 2}
-  deadStateData: {fileID: 11400000, guid: 38636d8633daf3645b16cc2e06ca3ed7, type: 2}
   rangedAttackData: {fileID: 11400000, guid: 1735edebb49c75a4cb41124990a74299, type: 2}
   angryIdleData: {fileID: 11400000, guid: 563b1cd5dca9252489cc19f915bd6f2f, type: 2}
   meleeAttackPosition: {fileID: 7050508869487995450}
   rangedAttackPosition: {fileID: 7050508869232059513}
   midRangedAttackPosition: {fileID: 0}
-  enemyType: 0
   hasDetectedPlayer: 0
+  hasBossFightStarted: 0
 --- !u!114 &7050508869128238795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -865,6 +898,7 @@ MonoBehaviour:
   deathParticle:
   - {fileID: 1887849707439144564, guid: 2cf598bad541de145a09891100d79264, type: 3}
   - {fileID: 4211016614419736535, guid: 368037bf0a70598449c78e09d2109aaf, type: 3}
+  HealthBarImage: {fileID: 0}
 --- !u!1 &7050508870578393491
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,7 +990,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4617582033220906, guid: bf9f848a24682054e9fddc30f1184e46, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4617582033220906, guid: bf9f848a24682054e9fddc30f1184e46, type: 3}
       propertyPath: m_LocalScale.x
@@ -1194,7 +1228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4617582033220906, guid: bf9f848a24682054e9fddc30f1184e46, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4617582033220906, guid: bf9f848a24682054e9fddc30f1184e46, type: 3}
       propertyPath: m_LocalScale.x

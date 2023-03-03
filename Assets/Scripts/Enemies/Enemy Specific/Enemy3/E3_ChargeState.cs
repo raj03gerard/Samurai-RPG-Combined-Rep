@@ -5,7 +5,6 @@ using UnityEngine;
 public class E3_ChargeState : ChargeState
 {
     Enemy3 enemy;
-    bool isPlayerInMaxAgroRange = false;
     D_RangedAttackState RangedAttackData;
 
 
@@ -18,7 +17,6 @@ public class E3_ChargeState : ChargeState
     public override void DoChecks()
     {
         base.DoChecks();
-        isPlayerInMaxAgroRange = entity.CheckPlayerInMaxAgroRange();
     }
 
     public override void Enter()
@@ -34,24 +32,21 @@ public class E3_ChargeState : ChargeState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        
-        
+
+
         if (performCloseRangeAction)
         {
             stateMachine.ChangeState(enemy.meleeAttackState);
         }
-        else if (isChargeTimeOver && isInMidRangeAttackDistance())
+        else if (isChargeTimeOver && performMidRangeAction)
         {
-            if (enemy.enemyType == Enemy3.EnemyType.mikoshi_nyudo)
-                stateMachine.ChangeState(enemy.midRangeAttackState);
-            else if (enemy.enemyType == Enemy3.EnemyType.o_kiku)
-                stateMachine.ChangeState(enemy.midRangeAttackState_type_2);
+            stateMachine.ChangeState(enemy.midRangeAttackState);
         }
-        else if ( isChargeTimeOver && isInLongRangeAttackDistance())
+        else if (isChargeTimeOver && performLongRangeAction)
         {
             stateMachine.ChangeState(enemy.rangedAttackState);
         }
-        
+
         else if (!isDetectingLedge || isDetectingWall)
         {
             stateMachine.ChangeState(enemy.lookForPlayerState);
@@ -63,9 +58,9 @@ public class E3_ChargeState : ChargeState
                 if (!enemy.hasDetectedPlayer)
                 {
                     enemy.hasDetectedPlayer = true;
-                    stateMachine.ChangeState(enemy.playerDetectedState);
+                    stateMachine.ChangeState(enemy.enterAngryState);
                 }
-                else stateMachine.ChangeState(enemy.angryIdleState);
+                else stateMachine.ChangeState(enemy.playerDetectedState);
             }
             else
             {
@@ -81,16 +76,4 @@ public class E3_ChargeState : ChargeState
         base.PhysicsUpdate();
     }
 
-    public bool isInLongRangeAttackDistance()
-    {
-        Transform playerCheck = enemy.GetPlayerCheckPosition();
-        return Physics2D.Raycast(playerCheck.position, entity.transform.right, RangedAttackData.LongRangeAttackDistance, entity.entityData.whatIsPlayer);
-
-    }
-    public bool isInMidRangeAttackDistance()
-    {
-        Transform playerCheck = enemy.GetPlayerCheckPosition();
-        return Physics2D.Raycast(playerCheck.position, entity.transform.right, RangedAttackData.MidRangeAttackDistance, entity.entityData.whatIsPlayer);
-
-    }
 }

@@ -86,8 +86,8 @@ public class LookForPlayerState : State
     }
 
     public void SetTurnImmediately(bool flip)
-    {   
-        if(!combat.isKnockbackActive)
+    {
+        //if(!combat.isKnockbackActive) - Cause a bug If player Stun Enemy1 and go through them -> the Enemy1 stuck in StunState.
         turnImmediately = flip;
     }
 }

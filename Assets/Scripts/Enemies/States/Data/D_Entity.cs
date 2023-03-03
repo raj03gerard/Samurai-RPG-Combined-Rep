@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="newEntityData", menuName = "Data/Entity Data/Base Data")]
+[CreateAssetMenu(fileName = "newEntityData", menuName = "Data/Entity Data/Base Data")]
 public class D_Entity : ScriptableObject
 {
     public float maxHealth = 40f;
@@ -20,6 +20,8 @@ public class D_Entity : ScriptableObject
     public float maxAgroDistance = 20f;
 
     public float closeRangeActionDistance = 1f;
+    public float midRangeActionDistance = 20f;
+    public float longRangeActionDistance = 50f;
 
     public GameObject hitParticle;
 

@@ -31,6 +31,7 @@ public class PlayerDashState : PlayerAbilityState
         startTime = Time.unscaledTime;
 
         player.DashDirectionIndicator.gameObject.SetActive(true);
+        player.DashEffectParticles.transform.rotation = Quaternion.identity;
     }
 
     public override void Exit()
@@ -41,6 +42,7 @@ public class PlayerDashState : PlayerAbilityState
         {
             Movement?.SetVelocityY(Movement.CurrentVelocity.y * playerData.dashEndYMultiplier);
         }
+        player.DashEffectParticles.SetActive(false);
     }
 
     public override void LogicUpdate()
@@ -65,6 +67,7 @@ public class PlayerDashState : PlayerAbilityState
 
                 float angle = Vector2.SignedAngle(Vector2.right, dashDirection);
                 player.DashDirectionIndicator.rotation = Quaternion.Euler(0f, 0f, angle - 45f);
+                player.DashEffectParticles.transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
                 if (dashInputStop || Time.unscaledTime >= startTime + playerData.maxHoldTime)
                 {
@@ -75,7 +78,9 @@ public class PlayerDashState : PlayerAbilityState
                     player.RB.drag = playerData.drag;
                     Movement?.SetVelocity(playerData.dashVelocity, dashDirection);
                     player.DashDirectionIndicator.gameObject.SetActive(false);
-                   // PlaceAfterImage();
+                    player.DashEffectParticles.SetActive(true);
+                    
+                    // PlaceAfterImage();
                 }
             }
             else
@@ -97,7 +102,7 @@ public class PlayerDashState : PlayerAbilityState
     {
         if (Vector2.Distance(player.transform.position, lastAfterImagePosition) >= playerData.distBetweenAfterImages)
         {
-         //   PlaceAfterImage();
+            //   PlaceAfterImage();
         }
     }
 

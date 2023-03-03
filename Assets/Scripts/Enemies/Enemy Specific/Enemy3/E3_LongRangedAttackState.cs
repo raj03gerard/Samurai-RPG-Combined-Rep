@@ -46,25 +46,16 @@ public class E3_LongRangedAttackState : RangedAttackState
 
         if (isAnimationFinished)
         {
-            if (isPlayerInMinAgroRange)
+            if (isPlayerInMaxAgroRange)
             {
-                
-                int randInt = Random.Range(1, 3);
-                if (randInt == 1)
-                    stateMachine.ChangeState(enemy.chargeState);
-                else
-                {
-                   
-                    stateMachine.ChangeState(enemy.angryIdleState);
-                }
-                
+                stateMachine.ChangeState(enemy.playerDetectedState);
             }
             else
             {
                 stateMachine.ChangeState(enemy.lookForPlayerState);
             }
         }
-        
+
     }
    
     public override void PhysicsUpdate()

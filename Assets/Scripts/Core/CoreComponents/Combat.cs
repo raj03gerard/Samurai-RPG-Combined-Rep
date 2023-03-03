@@ -29,7 +29,9 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
     public delegate void OnDamaged();
     public static event OnDamaged FlashScreenRed;
 
-    
+    public delegate void OnEnemyDamaged(float amount);
+    public static event OnEnemyDamaged FlashDamageAmount;
+
     public override void LogicUpdate()
     {
         CheckKnockback();
@@ -46,14 +48,21 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
     {
         
         Stats?.DecreaseHealth(amount);
-        HealthBarFillAmt = Remap(Stats.currentHealth, 0, 100, 0, 1);
-        Debug.Log(this.transform.parent.transform.parent.name + "Fill amount: " + HealthBarFillAmt);
-        Debug.Log(core.transform.parent.name + " Damaged By Amount: "+ amount);
-        
+        try
+        {
+            HealthBarFillAmt = Remap(Stats.currentHealth, 0, 100, 0, 1);
+        }
+        catch
+        {
+            //pass
+        }
+            
         ParticleManager?.StartParticlesWithRandomRotation(damageParticles);
 
         if (FlashScreenRed != null && this.transform.parent.transform.parent.name=="Player")
             FlashScreenRed();
+        if (this.transform.parent.transform.parent.name != "Player")
+            FlashDamageAmount(amount);
     }
 
     public void Knockback(Vector2 angle, float strength, int direction)

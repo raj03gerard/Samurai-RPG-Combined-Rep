@@ -17,6 +17,8 @@ public class PlayerDetectedState : State
     protected bool isDetectingLedge;
     protected bool performLongRangeAction;
     protected bool performCloseRangeAction;
+    protected bool performMidRangeAction;
+
     private Combat Combat { get => combat ?? core.GetCoreComponent(ref combat); }
     private Combat combat;
     protected bool isKnockbackActive;
@@ -33,6 +35,8 @@ public class PlayerDetectedState : State
         isPlayerInMaxAgroRange = entity.CheckPlayerInMaxAgroRange();
         isDetectingLedge = CollisionSenses.LedgeVertical;
         performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
+        performMidRangeAction = entity.CheckPlayerInMidRangeAction();
+        performLongRangeAction = entity.CheckPlayerInLongRangeAction();
     }
 
     public override void Enter()

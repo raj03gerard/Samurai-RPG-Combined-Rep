@@ -34,11 +34,11 @@ public class E2_StunState : StunState
         {
             if (performCloseRangeAction)
             {
-                if (Time.time >= enemy.dodgeState.startTime + enemy.dodgeStateData.dodgeCooldown)
-                {
-                    stateMachine.ChangeState(enemy.dodgeState);
-                }
-                else
+                //if (Time.time >= enemy.dodgeState.startTime + enemy.dodgeStateData.dodgeCooldown)
+                //{
+                //    stateMachine.ChangeState(enemy.dodgeState);
+                //}
+                //else
                 {
                     stateMachine.ChangeState(enemy.meleeAttackState);
                 }

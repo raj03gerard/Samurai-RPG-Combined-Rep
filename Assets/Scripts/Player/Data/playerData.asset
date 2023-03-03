@@ -15,7 +15,7 @@ MonoBehaviour:
   movementVelocity: 13
   jumpVelocity: 20
   amountOfJumps: 1
-  wallJumpVelocity: 20
+  wallJumpVelocity: 30
   wallJumpTime: 0.4
   wallJumpAngle: {x: 1, y: 2}
   coyoteTime: 0.2
@@ -24,8 +24,8 @@ MonoBehaviour:
   wallClimbVelocity: 7
   startOffset: {x: 0.4, y: 0.9}
   stopOffset: {x: 2, y: 0.75}
-  dashCooldown: 0.5
-  maxHoldTime: 1
+  dashCooldown: 0.001
+  maxHoldTime: 0.5
   holdTimeScale: 0.25
   dashTime: 0.2
   dashVelocity: 30

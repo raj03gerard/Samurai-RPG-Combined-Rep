@@ -41,6 +41,11 @@ public class Player : MonoBehaviour
     public bool isBlocking;
     #endregion
 
+    #region Prefabs
+    [SerializeField]
+    public GameObject DashEffectParticles;
+    #endregion
+
     #region Components
     public Core Core { get; private set; }
     public Animator Anim { get; private set; }
@@ -80,13 +85,15 @@ public class Player : MonoBehaviour
         WallClimbState = new PlayerWallClimbState(this, StateMachine, playerData, "wallClimb");
         WallJumpState = new PlayerWallJumpState(this, StateMachine, playerData, "inAir");
         LedgeClimbState = new PlayerLedgeClimbState(this, StateMachine, playerData, "ledgeClimbState");
-        DashState = new PlayerDashState(this, StateMachine, playerData, "inAir");
+        DashState = new PlayerDashState(this, StateMachine, playerData, "dash");
         CrouchIdleState = new PlayerCrouchIdleState(this, StateMachine, playerData, "crouchIdle");
         CrouchMoveState = new PlayerCrouchMoveState(this, StateMachine, playerData, "crouchMove");
         PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
         SecondaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
         GroundRollState = new PlayerGroundRollState(this, StateMachine, playerData, "roll");
         GroundSlideState = new PlayerGroundSlideState(this, StateMachine, playerData, "slide");
+        BlockState = new PlayerBlockState(this, StateMachine, playerData, "block");
+        ExitBlockState = new PlayerExitBlockState(this, StateMachine, playerData, "exitBlock");
     }
 
     public void Start()

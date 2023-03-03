@@ -70,13 +70,12 @@ public class PlayerGroundedState : PlayerState
         {
             stateMachine.ChangeState(player.PrimaryAttackState);
         }
-        //else if (player.InputHandler.AttackInputs[(int)CombatInputs.secondary] && !isTouchingCeiling && !player.isBlocking)
         else if (Input.GetKey(KeyCode.Mouse1) && !isTouchingCeiling && player.canDeployShield && !player.isBlocking)
-        {
-            Movement?.SetVelocityX(0f); // Not working
+        {   
             stateMachine.ChangeState(player.BlockState);
         }
-        else if (jumpInput && player.JumpState.CanJump() && !isTouchingCeiling && Player.canJump)
+        //else if (jumpInput && player.JumpState.CanJump() && Player.canJump)
+        else if (jumpInput && player.JumpState.CanJump() && Player.canJump)
         {
             stateMachine.ChangeState(player.JumpState);
         }
@@ -94,7 +93,6 @@ public class PlayerGroundedState : PlayerState
             stateMachine.ChangeState(player.DashState);
         }
     }
-
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();

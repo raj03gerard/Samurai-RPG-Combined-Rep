@@ -11,16 +11,28 @@ public class Death : CoreComponent
 
     private Stats Stats { get => stats ?? core.GetCoreComponent(ref stats); }
     private Stats stats;
-
+    [SerializeField]
+    GameObject HealthBarImage;
+    [SerializeField]
+    GameObject BossAreaBlocker;
     //Function which will disable the object the Death Core Component attached to.
     public void Die()
     {
-        //instantiate some particles when object dies
-        foreach (var particle in deathParticle)
+        try
         {
-            ParticleManager.StartParticles(particle);
+            //instantiate some particles when object dies
+            foreach (var particle in deathParticle)
+            {
+                ParticleManager.StartParticles(particle);
+            }
+        
+            HealthBarImage.SetActive(false);
+            BossAreaBlocker.SetActive(false);
         }
-
+        catch
+        {
+            //No health bar image
+        }
         core.transform.parent.gameObject.SetActive(false);
     }
 

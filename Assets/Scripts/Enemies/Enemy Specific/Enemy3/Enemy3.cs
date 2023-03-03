@@ -5,6 +5,8 @@ using UnityEngine;
 public class Enemy3 : Entity
 {
     public enum EnemyType { mikoshi_nyudo, o_kiku};
+    [SerializeField]
+    EnemyType enemyType;
     public E3_IdleState idleState { get; private set; }
     public E3_MoveState moveState { get; private set; }
     public E3_PlayerDetectedState playerDetectedState { get; private set; }
@@ -13,15 +15,14 @@ public class Enemy3 : Entity
     public E3_MeleeAttackState meleeAttackState { get; private set; }
 
     public E3_StunState stunState { get; private set; }
-    public E3_DeadState deadState { get; private set; }
 
-    public E3_RetractNeckState retractNeckState { get; private set; }
+    public E3_ForgetPlayerState forgetPlayerState { get; private set; }
 
     public E3_LongRangedAttackState rangedAttackState { get; private set; }
 
-    public E3_AngryIdleState angryIdleState { get; private set; }
+    public E3_EnterAngryState enterAngryState { get; private set; }
 
-    public E3_MidRangeAttackState midRangeAttackState { get; private set; }
+    public E3_MidRangedAttackState midRangeAttackState { get; private set; }
     public MidRangeAttackState_Type_2 midRangeAttackState_type_2 { get; private set; }
 
     public StunState stunState_2 { get; private set; }
@@ -41,8 +42,6 @@ public class Enemy3 : Entity
     [SerializeField]
     private D_StunState stunStateData;
     [SerializeField]
-    private D_DeadState deadStateData;
-    [SerializeField]
     private D_RangedAttackState rangedAttackData;
 
     [SerializeField]
@@ -53,8 +52,7 @@ public class Enemy3 : Entity
     public Transform rangedAttackPosition;
     [SerializeField]
     public Transform midRangedAttackPosition;
-    [SerializeField]
-    public EnemyType enemyType;
+    State cur_state;
 
     #region GameLogic Variables
     public bool hasDetectedPlayer = false;
@@ -66,24 +64,22 @@ public class Enemy3 : Entity
 
         moveState = new E3_MoveState(this, stateMachine, "move", moveStateData, this);
         idleState = new E3_IdleState(this, stateMachine, "idle", idleStateData, this);
-        playerDetectedState = new E3_PlayerDetectedState(this, stateMachine, "playerDetected", playerDetectedData,rangedAttackData, this);
+        playerDetectedState = new E3_PlayerDetectedState(this, stateMachine, "playerDetected", playerDetectedData, rangedAttackData, this);
         chargeState = new E3_ChargeState(this, stateMachine, "charge", chargeStateData, rangedAttackData, this);
         lookForPlayerState = new E3_LookForPlayerState(this, stateMachine, "lookForPlayer", lookForPlayerData, this);
         meleeAttackState = new E3_MeleeAttackState(this, stateMachine, "meleeAttack", meleeAttackPosition, meleeAttackStateData, this);
         stunState = new E3_StunState(this, stateMachine, "stun", stunStateData, this);
-        deadState = new E3_DeadState(this, stateMachine, "dead", deadStateData, this);
-        retractNeckState = new E3_RetractNeckState(this, stateMachine, "playerForgotten", this);
+        forgetPlayerState = new E3_ForgetPlayerState(this, stateMachine, "playerForgotten", this);
         rangedAttackState = new E3_LongRangedAttackState(this, stateMachine, "rangedAttack", rangedAttackPosition, rangedAttackData, this);
-        midRangeAttackState = new E3_MidRangeAttackState(this, stateMachine, "midRangedAttack", rangedAttackPosition, rangedAttackData, this);
+        midRangeAttackState = new E3_MidRangedAttackState(this, stateMachine, "midRangedAttack", rangedAttackPosition, rangedAttackData, this, enemyType);
         midRangeAttackState_type_2 = new MidRangeAttackState_Type_2(this, stateMachine, "midRangedAttack_type_2", rangedAttackPosition, rangedAttackData, this);
-        angryIdleState = new E3_AngryIdleState(this, stateMachine, "angryIdle", playerDetectedData, angryIdleData, rangedAttackData, this);
+        enterAngryState = new E3_EnterAngryState(this, stateMachine, "angry", this);
     }
 
     private void Start()
     {
 
         stateMachine.Initialize(idleState);
-        movement?.Flip();
     }
 
     //----------------Test Code-----------------------------------------------------
@@ -106,5 +102,9 @@ public class Enemy3 : Entity
         base.OnDrawGizmos();
 
         Gizmos.DrawWireSphere(meleeAttackPosition.position, meleeAttackStateData.attackRadius);
+    }
+    public void AnimationFinishTrigger()
+    {
+        stateMachine.currentState.AnimationFinishTrigger();
     }
 }

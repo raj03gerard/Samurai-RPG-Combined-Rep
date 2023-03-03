@@ -23,7 +23,7 @@ public class CinemachineSwitchBaseToShunga : MonoBehaviour
     {
         if (BaseCamera)
         {
-            anim.Play("ShungaTakoArea");
+            anim.Play("ShungaTako");
         }
         else anim.Play("BaseLevel");
 
