@@ -11,6 +11,7 @@ TagManager:
   - Ground
   - Player_Weapon
   - ParticleContainer
+  - HealthOrb
   layers:
   - Default
   - TransparentFX

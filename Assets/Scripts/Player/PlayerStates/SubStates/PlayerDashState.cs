@@ -13,6 +13,7 @@ public class PlayerDashState : PlayerAbilityState
     private Vector2 lastAfterImagePosition;
 
     private float lastDashTime;
+    GameObject particleContainer;
     public PlayerDashState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
     }
@@ -31,7 +32,8 @@ public class PlayerDashState : PlayerAbilityState
         startTime = Time.unscaledTime;
 
         player.DashDirectionIndicator.gameObject.SetActive(true);
-        player.DashEffectParticles.transform.rotation = Quaternion.identity;
+        particleContainer = GameObject.FindGameObjectWithTag("ParticleContainer");
+        //player.DashEffectParticles.transform.rotation = Quaternion.identity;
     }
 
     public override void Exit()
@@ -67,7 +69,7 @@ public class PlayerDashState : PlayerAbilityState
 
                 float angle = Vector2.SignedAngle(Vector2.right, dashDirection);
                 player.DashDirectionIndicator.rotation = Quaternion.Euler(0f, 0f, angle - 45f);
-                player.DashEffectParticles.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+                //player.DashEffectParticles.transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
                 if (dashInputStop || Time.unscaledTime >= startTime + playerData.maxHoldTime)
                 {
@@ -79,7 +81,8 @@ public class PlayerDashState : PlayerAbilityState
                     Movement?.SetVelocity(playerData.dashVelocity, dashDirection);
                     player.DashDirectionIndicator.gameObject.SetActive(false);
                     player.DashEffectParticles.SetActive(true);
-                    
+                    GameObject dashParticlesObj= GameObject.Instantiate(player.DashParticlesPrefab, player.DashEffectParticles.transform.position, player.DashEffectParticles.transform.rotation, particleContainer.transform);
+                    GameObject.Destroy(dashParticlesObj, 2f);
                     // PlaceAfterImage();
                 }
             }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.UI;
+using TMPro;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
@@ -70,16 +71,39 @@ public class GameManager : MonoBehaviour
      public GameObject EnemyDamgedAmountTextContainer;
     [SerializeField]
     GameObject EnemyDamgedAmountText;
+    [SerializeField]
+
+    GameObject StartDialoguePrompt;
+    [SerializeField]
+    GameObject DialogContainer;
+    [SerializeField]
+    GameObject DialogText;
+    string CurrentDialogue;
+    GameObject currentlyInteractingNPC;
+    bool isDialogueReady = false;
+
+    [SerializeField]
+    GameObject NPC_Cam;
+    string Player_V_Cam;
+    public delegate void DuringNPCInteraction();
+    public static event DuringNPCInteraction HideAllUIElementsWhileNPCInteraction;
+
+    public delegate void AfterNPCInteraction();
+    public static event AfterNPCInteraction ShowHiddenUIElementsAfterNPCInteraction;
     void OnEnable()
     {
         Combat.FlashScreenRed += FlashRedOnBeingHit;
         Combat.FlashDamageAmount += FlashEnemyDamageAmount;
+        NPC1_InteractState.DialogPrompt += DialogStartPrompt;
+        NPC1_ForgetPlayerState.RemoveDialogPrompt += RemoveDialogStartPrompt;
         CinematicEventHandler.ShowBossPromptEvent += DisplayBossPrompt;
     }
     void OnDisable()
     {
         Combat.FlashScreenRed -= FlashRedOnBeingHit;
         Combat.FlashDamageAmount -= FlashEnemyDamageAmount;
+        NPC1_InteractState.DialogPrompt -= DialogStartPrompt;
+        NPC1_ForgetPlayerState.RemoveDialogPrompt -= RemoveDialogStartPrompt;
         CinematicEventHandler.ShowBossPromptEvent -= DisplayBossPrompt;
     }
     private void Start()
@@ -108,6 +132,10 @@ public class GameManager : MonoBehaviour
                 isEscapePromptActive = false;
             }
 
+        }
+        if(Input.GetKeyDown(KeyCode.F) && isDialogueReady)
+        {
+            DisplayDialog();
         }
         CheckReswapn();
     }
@@ -186,7 +214,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log( "damaged by" + amount );
         GameObject textObj = Instantiate(EnemyDamgedAmountText, EnemyDamgedAmountTextContainer.transform);
-        textObj.GetComponent<Text>().text = amount + " Hits!!";
+        textObj.GetComponent<TMP_Text>().text = amount + " Hits!!";
         Destroy(textObj, 2f);
     }
     void FlashRedOnBeingHit()
@@ -209,6 +237,42 @@ public class GameManager : MonoBehaviour
         RedFlashOnScreen.SetActive(false);
     }
 
+    public void DialogStartPrompt(string Dialogue, GameObject interactingNPC, string VCam_Area)
+    {
+        isDialogueReady = true;
+        CurrentDialogue = Dialogue;
+        currentlyInteractingNPC = interactingNPC;
+        StartDialoguePrompt.SetActive(true);
+        Player_V_Cam = VCam_Area;
+    }
+    public void RemoveDialogStartPrompt(GameObject InteractingNPC)
+    {
+        StartDialoguePrompt.SetActive(false);
+        InteractingNPC.GetComponent<NPC1>().SetHasInteractionEndedTrue();
+        currentlyInteractingNPC = null;
+    }
+    public void DisplayDialog()
+    {
+        isDialogueReady = false;
+        DialogContainer.SetActive(true);
+        DialogText.GetComponent<TMP_Text>().text = CurrentDialogue;
+        StartDialoguePrompt.SetActive(false);
 
-    
+        Debug.Log(Player_V_Cam);
+        CinemachineAnim.Play("NPC Cam");
+        NPC_Cam.GetComponent<CinemachineVirtualCamera>().Follow= currentlyInteractingNPC.transform;
+        if (HideAllUIElementsWhileNPCInteraction != null)
+            HideAllUIElementsWhileNPCInteraction();
+    }
+    public void CloseDialog()
+    {
+        isDialogueReady = false;
+        CurrentDialogue = "";
+        DialogContainer.SetActive(false);
+        currentlyInteractingNPC.GetComponent<NPC1>().SetHasInteractionEndedTrue();
+        currentlyInteractingNPC = null;
+        if (ShowHiddenUIElementsAfterNPCInteraction != null)
+            ShowHiddenUIElementsAfterNPCInteraction();
+        CinemachineAnim.Play(Player_V_Cam);
+    }
 }

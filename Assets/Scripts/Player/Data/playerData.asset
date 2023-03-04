@@ -28,7 +28,7 @@ MonoBehaviour:
   maxHoldTime: 0.5
   holdTimeScale: 0.25
   dashTime: 0.2
-  dashVelocity: 30
+  dashVelocity: 60
   drag: 10
   dashEndYMultiplier: 0.2
   distBetweenAfterImages: 0.5

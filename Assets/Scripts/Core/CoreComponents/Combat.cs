@@ -48,14 +48,7 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
     {
         
         Stats?.DecreaseHealth(amount);
-        try
-        {
-            HealthBarFillAmt = Remap(Stats.currentHealth, 0, 100, 0, 1);
-        }
-        catch
-        {
-            //pass
-        }
+        UpdateHealthBar();
             
         ParticleManager?.StartParticlesWithRandomRotation(damageParticles);
 
@@ -64,7 +57,17 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
         if (this.transform.parent.transform.parent.name != "Player")
             FlashDamageAmount(amount);
     }
-
+    public void UpdateHealthBar()
+    {
+        try
+        {
+            HealthBarFillAmt = Remap(Stats.currentHealth, 0, 100, 0, 1);
+        }
+        catch
+        {
+            //pass
+        }
+    }
     public void Knockback(Vector2 angle, float strength, int direction)
     {
         Movement?.SetVelocity(strength, angle, direction);

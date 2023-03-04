@@ -44,6 +44,8 @@ public class Player : MonoBehaviour
     #region Prefabs
     [SerializeField]
     public GameObject DashEffectParticles;
+    [SerializeField]
+    public GameObject DashParticlesPrefab;
     #endregion
 
     #region Components

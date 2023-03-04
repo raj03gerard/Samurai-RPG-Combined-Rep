@@ -8,6 +8,8 @@ public class CinemachineSwitcher : MonoBehaviour
     private Animator anim;
     [SerializeField]
     private bool BaseCamera = true;
+    [SerializeField]
+    string VMCamToPlay;
 
     
     void Awake()
@@ -25,11 +27,11 @@ public class CinemachineSwitcher : MonoBehaviour
     {
         if (BaseCamera)
         {
-            anim.Play("SpiderNest");
+            anim.Play(VMCamToPlay);
         }
-        else anim.Play("BaseLevel");
+        //else anim.Play("BaseLevel");
 
-        BaseCamera = !BaseCamera;
+        //BaseCamera = !BaseCamera;
     }
     void SwitchToThisVCam()
     {

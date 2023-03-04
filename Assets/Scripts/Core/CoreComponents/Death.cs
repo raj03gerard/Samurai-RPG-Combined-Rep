@@ -14,7 +14,12 @@ public class Death : CoreComponent
     [SerializeField]
     GameObject HealthBarImage;
     [SerializeField]
-    GameObject BossAreaBlocker;
+    List<GameObject> ThingsToDisable;
+    [SerializeField]
+    GameObject HealthOrb;
+
+    [SerializeField]
+    GameObject ParticlesContainer;
     //Function which will disable the object the Death Core Component attached to.
     public void Die()
     {
@@ -25,9 +30,18 @@ public class Death : CoreComponent
             {
                 ParticleManager.StartParticles(particle);
             }
-        
+
+            if (HealthOrb != null)
+            {
+                GameObject particleContainer = GameObject.FindGameObjectWithTag("ParticleContainer");
+                GameObject healthorbObj = Instantiate(HealthOrb, particleContainer.transform);
+                healthorbObj.transform.position = particleManager.transform.position;
+            }
+
             HealthBarImage.SetActive(false);
-            BossAreaBlocker.SetActive(false);
+            foreach(GameObject g in ThingsToDisable)
+            g.SetActive(false);
+            
         }
         catch
         {
