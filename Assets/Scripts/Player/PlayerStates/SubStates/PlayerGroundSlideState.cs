@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerGroundSlideState : PlayerGroundedState
 {
+    GameObject particleContainer;
     public PlayerGroundSlideState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
     }
@@ -17,6 +18,9 @@ public class PlayerGroundSlideState : PlayerGroundedState
     {
         base.Enter();
         //Movement?.SetVelocityX(0f);
+        particleContainer = GameObject.FindGameObjectWithTag("ParticleContainer");
+        GameObject dashParticlesObj = GameObject.Instantiate(player.DashParticlesPrefab, player.DashEffectParticles.transform.position, player.DashEffectParticles.transform.rotation, particleContainer.transform);
+        GameObject.Destroy(dashParticlesObj, 2f);
     }
 
     public override void Exit()
@@ -27,8 +31,7 @@ public class PlayerGroundSlideState : PlayerGroundedState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        Movement?.SetVelocityX(0f); //Added for Stun State - check if it's necessary when improve respective code.
-
+        Movement?.SetVelocityX(10f);
         if (!isExitingState)
         {
             if (xInput != 0)

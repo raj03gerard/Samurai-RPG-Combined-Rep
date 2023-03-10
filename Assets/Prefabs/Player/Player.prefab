@@ -59,6 +59,9 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  whatIsWallBlock:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!1 &5215115205541001842
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,8 +531,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 9ad703aed7d51bf418a91e1b443fd907, type: 2}
+  additionalStatsData: {fileID: 0}
   canDeployShield: 1
   isBlocking: 0
+  DashEffectParticles: {fileID: 0}
+  DashParticlesPrefab: {fileID: 0}
 --- !u!114 &5215115206076087865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1263,6 +1269,9 @@ MonoBehaviour:
   - {fileID: 1887849707439144564, guid: 2cf598bad541de145a09891100d79264, type: 3}
   - {fileID: 4211016614419736535, guid: 368037bf0a70598449c78e09d2109aaf, type: 3}
   HealthBarImage: {fileID: 0}
+  ThingsToDisable: []
+  HealthOrb: {fileID: 0}
+  ParticlesContainer: {fileID: 0}
 --- !u!1 &5491144005204000475
 GameObject:
   m_ObjectHideFlags: 0

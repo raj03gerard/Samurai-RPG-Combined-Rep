@@ -59,7 +59,7 @@ public class MeleeAttackState : AttackState
                 {
                     if (shield.canBeDamagedNow)
                         damageable.Damage(stateData.attackDamage);
-                    else blockable.DamageShield(stateData.attackDamage);
+                    else blockable.DamageShield(stateData.attackDamage*2);
                 }
                 else damageable.Damage(stateData.attackDamage);
             }

@@ -38,7 +38,7 @@ public class NPC1_MoveState : MoveState
             enemy.hasDetectedPlayer = true;
             stateMachine.ChangeState(enemy.playerDetectedState);
         }
-        else if (isDetectingWall || !isDetectingLedge)
+        else if (isDetectingWall || isDetectingBlockingWall || !isDetectingLedge)
         {
             enemy.idleState.SetFlipAfterIdle(true);
             stateMachine.ChangeState(enemy.idleState);

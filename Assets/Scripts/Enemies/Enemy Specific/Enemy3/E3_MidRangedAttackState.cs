@@ -90,7 +90,7 @@ public class E3_MidRangedAttackState : RangedAttackState
                     {
                         if (shield.canBeDamagedNow)
                             damageable.Damage(stateData.midRangeAttackDamage);
-                        else blockable.DamageShield(stateData.midRangeAttackDamage);
+                        else blockable.DamageShield(stateData.midRangeAttackDamage*2);
                     }
                     else
                     damageable.Damage(stateData.midRangeAttackDamage);

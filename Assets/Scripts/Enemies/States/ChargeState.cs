@@ -15,6 +15,7 @@ public class ChargeState : State
     protected bool isPlayerInMinAgroRange;
     protected bool isDetectingLedge;
     protected bool isDetectingWall;
+    protected bool isDetectingBlockingWall;
     protected bool isChargeTimeOver;
     protected bool performCloseRangeAction;
     protected bool performMidRangeAction;
@@ -31,6 +32,7 @@ public class ChargeState : State
         isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
         isDetectingLedge = CollisionSenses.LedgeVertical;
         isDetectingWall = CollisionSenses.WallFront;
+        isDetectingBlockingWall = CollisionSenses.WallBlock;
 
         performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
         performMidRangeAction = entity.CheckPlayerInMidRangeAction();

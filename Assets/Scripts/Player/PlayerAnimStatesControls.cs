@@ -28,7 +28,7 @@ public class PlayerAnimStatesControls : MonoBehaviour
         Player.canJump = true;
         this.GetComponent<Animator>().SetBool("slide", false);
         this.GetComponent<Animator>().SetBool("roll", false);
-
+        
     }
     #endregion
 }

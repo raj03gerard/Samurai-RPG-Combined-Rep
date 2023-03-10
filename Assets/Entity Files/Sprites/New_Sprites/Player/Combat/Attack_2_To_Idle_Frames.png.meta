@@ -1,36 +1,12 @@
 fileFormatVersion: 2
-guid: 9876c224a12daa14eaf70f4e307779f1
+guid: 92f74daa80357b34bae546333e72d140
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 5062746827243439843
-    second: Attack_2_To_Idle_Frames_0
-  - first:
-      213: 6528871864955814755
-    second: Attack_2_To_Idle_Frames_1
-  - first:
-      213: -3948973054972120514
-    second: Attack_2_To_Idle_Frames_2
-  - first:
-      213: 7831447242648515143
-    second: Attack_2_To_Idle_Frames_3
-  - first:
-      213: 7264365666232519796
-    second: Attack_2_To_Idle_Frames_4
-  - first:
-      213: 1545446162743170236
-    second: Attack_2_To_Idle_Frames_5
-  - first:
-      213: -4000311281541525486
-    second: Attack_2_To_Idle_Frames_6
-  - first:
-      213: 3207262634645422511
-    second: Attack_2_To_Idle_Frames_7
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -90,7 +66,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -102,7 +78,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -113,20 +89,8 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 8192
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 8192
+    buildTarget: Server
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -138,7 +102,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -150,7 +114,19 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 8192
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -178,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e6c4917a6d724640800000000000000
-      internalID: 5062746827243439843
+      spriteID: 148ba8f6e46f4064fa700d72015a407f
+      internalID: 1349808632
       vertices: []
       indices: 
       edges: []
@@ -199,8 +175,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 363cbb6ae563b9a50800000000000000
-      internalID: 6528871864955814755
+      spriteID: 1e1b1e2f3cb6e2342b3066bf590ab2f7
+      internalID: -1875432703
       vertices: []
       indices: 
       edges: []
@@ -220,8 +196,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e323cc6dded6239c0800000000000000
-      internalID: -3948973054972120514
+      spriteID: a73f35d041a3ce940931b457aab340f5
+      internalID: -817475124
       vertices: []
       indices: 
       edges: []
@@ -241,8 +217,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 742f64f36c3eeac60800000000000000
-      internalID: 7831447242648515143
+      spriteID: a920cbc10b8fa4946bae50d410593d11
+      internalID: 381594589
       vertices: []
       indices: 
       edges: []
@@ -262,8 +238,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47c455ec51630d460800000000000000
-      internalID: 7264365666232519796
+      spriteID: c49de08ea244aea469589aa6ec9372bd
+      internalID: 1720511494
       vertices: []
       indices: 
       edges: []
@@ -283,8 +259,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb41ccdc817827510800000000000000
-      internalID: 1545446162743170236
+      spriteID: fd28a705951cb1b4fb269386d6819f97
+      internalID: -988993676
       vertices: []
       indices: 
       edges: []
@@ -304,8 +280,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 210dab0851a0c78c0800000000000000
-      internalID: -4000311281541525486
+      spriteID: cfcfddaac63434746a68b0ca2e09b7b3
+      internalID: 1779799596
       vertices: []
       indices: 
       edges: []
@@ -325,8 +301,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa18c679f5c728c20800000000000000
-      internalID: 3207262634645422511
+      spriteID: ea2594bf458ecc74eb203464de1201b8
+      internalID: -1164895175
       vertices: []
       indices: 
       edges: []
@@ -342,14 +318,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Attack_2_To_Idle_Frames_2: -3948973054972120514
-      Attack_2_To_Idle_Frames_5: 1545446162743170236
-      Attack_2_To_Idle_Frames_0: 5062746827243439843
-      Attack_2_To_Idle_Frames_7: 3207262634645422511
-      Attack_2_To_Idle_Frames_4: 7264365666232519796
-      Attack_2_To_Idle_Frames_1: 6528871864955814755
-      Attack_2_To_Idle_Frames_3: 7831447242648515143
-      Attack_2_To_Idle_Frames_6: -4000311281541525486
+      Attack_2_To_Idle_Frames_2: -817475124
+      Attack_2_To_Idle_Frames_5: -988993676
+      Attack_2_To_Idle_Frames_0: 1349808632
+      Attack_2_To_Idle_Frames_7: -1164895175
+      Attack_2_To_Idle_Frames_4: 1720511494
+      Attack_2_To_Idle_Frames_1: -1875432703
+      Attack_2_To_Idle_Frames_3: 381594589
+      Attack_2_To_Idle_Frames_6: 1779799596
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

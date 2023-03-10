@@ -28,6 +28,11 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject Jorogumo_Boss_Prompt;
 
+    [SerializeField]
+    GameObject Shunga_Tako_Health_Bar;
+    [SerializeField]
+    GameObject Shunga_Tako_Boss_Prompt;
+
     public GameObject Boss_Prompt;
     GameObject Boss_Health_Bar;
     GameObject Boss_Arena_Blocker;
@@ -64,6 +69,12 @@ public class GameManager : MonoBehaviour
     GameObject Jorogumo_Arena_Blocker;
 
     [SerializeField]
+    GameObject ShungaTako_Cinematic_Holder;
+    [SerializeField]
+    GameObject Shunga_Tako_Main_Body;
+    [SerializeField]
+    GameObject Shunga_Tako_Cinematic_VCam;
+    [SerializeField]
     GameObject EscapePrompt;
     bool isEscapePromptActive = false;
 
@@ -85,6 +96,11 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject NPC_Cam;
     string Player_V_Cam;
+
+    [SerializeField]
+    GameObject PlayerXPText;
+    [SerializeField]
+    GameObject SkillTreeContainer;
     public delegate void DuringNPCInteraction();
     public static event DuringNPCInteraction HideAllUIElementsWhileNPCInteraction;
 
@@ -137,6 +153,12 @@ public class GameManager : MonoBehaviour
         {
             DisplayDialog();
         }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            ShowSkillTree();
+        }
+
+        PlayerXPText.GetComponent<TMP_Text>().text = Player.GetComponent<Player>().additionalStatsData.totalXPCollected.ToString() + " XP";
         CheckReswapn();
     }
     public void PlayBossCinematic(EnemyNames enemyName)
@@ -154,6 +176,13 @@ public class GameManager : MonoBehaviour
             CinemachineAnim.Play("Jorogumo Cineamtic Cam");
             Boss_Arena_Blocker = Jorogumo_Arena_Blocker;
         }
+        else if( enemyName== EnemyNames.Shunga_Tako)
+        {
+            ShungaTako_Cinematic_Holder.SetActive(true);
+            CinemachineAnim.Play("ShungaTako Cineamtic Cam");
+            Boss_Arena_Blocker = null;
+        }
+        if(Boss_Arena_Blocker!=null)
         Boss_Arena_Blocker.SetActive(true);
     }
     void DisplayBossPrompt(EnemyNames enemyName)
@@ -183,6 +212,17 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             
         }
+        else if(enemeyName== EnemyNames.Shunga_Tako)
+        {
+            Shunga_Tako_Boss_Prompt.SetActive(true);
+            Boss_Prompt = Shunga_Tako_Boss_Prompt;
+            Boss_Health_Bar = Shunga_Tako_Health_Bar;
+            ShungaTako_Cinematic_Holder.SetActive(false);
+            Shunga_Tako_Main_Body.SetActive(true);
+            Shunga_Tako_Cinematic_VCam.GetComponent<CinemachineVirtualCamera>().Follow = Shunga_Tako_Main_Body.transform;
+            Time.timeScale = 0;
+            
+        }
     }
     public void ResumeGameAfterBossPrompt(string enemyName)
     {
@@ -192,6 +232,8 @@ public class GameManager : MonoBehaviour
             CinemachineAnim.Play("Tunnel");
         else if (enemyName == "Jorogumo")
             CinemachineAnim.Play("SpiderNest");
+        else if (enemyName == "ShungaTako")
+            CinemachineAnim.Play("ShungaTako");
         Boss_Prompt.SetActive(false);
         Boss_Health_Bar.SetActive(true);
     }
@@ -274,5 +316,13 @@ public class GameManager : MonoBehaviour
         if (ShowHiddenUIElementsAfterNPCInteraction != null)
             ShowHiddenUIElementsAfterNPCInteraction();
         CinemachineAnim.Play(Player_V_Cam);
+    }
+    public void ShowSkillTree()
+    {
+        SkillTreeContainer.SetActive(true);
+    }
+    public void HideSkillTree()
+    {
+        SkillTreeContainer.SetActive(false);
     }
 }

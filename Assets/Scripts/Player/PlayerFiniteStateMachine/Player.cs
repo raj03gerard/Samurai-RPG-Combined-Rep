@@ -30,7 +30,9 @@ public class Player : MonoBehaviour
     public PlayerExitBlockState ExitBlockState { get; private set; }
 
     [SerializeField]
-    private PlayerData playerData;
+    public PlayerData playerData;
+    [SerializeField]
+    public PlayerAdditionalStatsData additionalStatsData;
     #endregion
 
     #region StateControlVariables

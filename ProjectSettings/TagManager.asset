@@ -12,6 +12,7 @@ TagManager:
   - Player_Weapon
   - ParticleContainer
   - HealthOrb
+  - CollectibleOrb
   layers:
   - Default
   - TransparentFX
@@ -24,8 +25,8 @@ TagManager:
   - Dead
   - Player
   - Weapon
-  - 
-  - 
+  - WallBlock
+  - WallClimb
   - 
   - 
   - 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 924001769397968501}
   - component: {fileID: 1809232379330881908}
   - component: {fileID: 6752285650877826809}
+  - component: {fileID: -1214465575924843810}
   m_Layer: 0
   m_Name: HealthOrbParticleContainer
   m_TagString: HealthOrb
@@ -80,6 +81,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-1214465575924843810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3824415019848343315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a9a781375a4eae43864e2ddccca2494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  XP_to_add: 50
 --- !u!1001 &7618913262024729068
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -56,7 +56,7 @@ public class PlayerGroundedState : PlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
+        Debug.Log(Movement.CurrentVelocity);
         if (!player.isBlocking)
         {
             xInput = player.InputHandler.NormInputX;

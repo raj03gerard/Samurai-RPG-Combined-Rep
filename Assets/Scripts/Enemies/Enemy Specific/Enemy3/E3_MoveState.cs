@@ -48,10 +48,12 @@ public class E3_MoveState : MoveState
         if (isPlayerInMinAgroRange)
         {
             enemy.hasDetectedPlayer = true;
-            stateMachine.ChangeState(enemy.enterAngryState);
+            stateMachine.ChangeState(enemy.enterAngryState);    
         }
-        else if (isDetectingWall || !isDetectingLedge)
+        else if (isDetectingWall || isDetectingBlockingWall || !isDetectingLedge)
         {
+            if (isDetectingBlockingWall)
+                Debug.Log("Blocking wall detected");
             enemy.idleState.SetFlipAfterIdle(true);
             stateMachine.ChangeState(enemy.idleState);
         }

@@ -56,6 +56,7 @@ public class CollisionSenses : CoreComponent
     [SerializeField] private float wallCheckDistance;
 
     [SerializeField] private LayerMask whatIsGround;
+    [SerializeField] private LayerMask whatIsWallBlock;
     #endregion
 
     public bool Ceiling => Physics2D.OverlapCircle(ceilingCheck.position, groundCheckRadius, whatIsGround);
@@ -69,5 +70,7 @@ public class CollisionSenses : CoreComponent
     public bool LedgeVertical => Physics2D.Raycast(ledgeCheckVertical.position, Vector2.down, wallCheckDistance, whatIsGround);
 
     public bool WallBack => Physics2D.Raycast(wallCheck.position, Vector2.right * -Movement.FacingDirection, wallCheckDistance, whatIsGround);
+
+    public bool WallBlock => Physics2D.Raycast(wallCheck.position, Vector2.right * Movement.FacingDirection, wallCheckDistance, whatIsWallBlock);
 
 }

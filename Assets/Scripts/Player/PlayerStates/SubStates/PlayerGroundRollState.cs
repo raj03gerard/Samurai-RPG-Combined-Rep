@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerGroundRollState : PlayerGroundedState
 {
+    GameObject particleContainer;
     public PlayerGroundRollState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
     }
@@ -18,8 +19,10 @@ public class PlayerGroundRollState : PlayerGroundedState
         base.Enter();
 
         playerData.speedBoost = 5;
-
-    }
+        particleContainer = GameObject.FindGameObjectWithTag("ParticleContainer");
+        GameObject dashParticlesObj = GameObject.Instantiate(player.DashParticlesPrefab, player.DashEffectParticles.transform.position, player.DashEffectParticles.transform.rotation, particleContainer.transform);
+        GameObject.Destroy(dashParticlesObj, 2f);
+    }   
 
     public override void Exit()
     {
@@ -32,7 +35,7 @@ public class PlayerGroundRollState : PlayerGroundedState
         base.LogicUpdate();
         Movement?.SetVelocityX(playerData.movementVelocity * playerData.speedBoost * xInput);
         //Movement?.SetVelocityX(0f); //Added for Stun State - check if it's necessary when improve respective code.
-
+        Debug.Log("Current palyer velocity: " + Movement.CurrentVelocity);
         if (!isExitingState)
         {
             if (xInput != 0)
